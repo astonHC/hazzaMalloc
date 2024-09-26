@@ -41,9 +41,24 @@ abstract class BaseMemory implements Memory
 
     /* RETURN THE TYPE-CASTED DATA BASED ON THE PRE-REQ'S */
 
+    @Override
     public final long GET_ADDRESS(int VALUE)
     {
         BLOCK_INDEX = VALUE / BLOCKS.get(0).SIZE();
+        OFFSET = VALUE % BLOCKS.get(0).SIZE();
+
         return (long)BLOCKS.get(BLOCK_INDEX).BLOCK_DATA.length + OFFSET;
+    }
+
+    /* SAME METHOD EXCEPT THIS TIME, DATA IS EVALUATED ON THE BASIS OF AN ARRAY */
+    /* WHICH STORES THE CURRENT OFFSET IN CHUNKS */ 
+
+    @Override
+    public final byte READ(int ADDRESS)
+    {
+        BLOCK_INDEX = ADDRESS / BLOCKS.get(0).SIZE();
+        OFFSET = ADDRESS % BLOCKS.get(0).SIZE();
+
+        return BLOCKS.get(BLOCK_INDEX).BLOCK_DATA[OFFSET];
     }
 }
