@@ -6,16 +6,16 @@
 
 public abstract class MemoryBlock implements Memory
 {   
-    static byte[] BLOCK_DATA;
-    static int BLOCK_SIZE;
-    static boolean ALLOCATED;
+    byte[] BLOCK_DATA;
+    int BLOCK_SIZE;
+    boolean ALLOCATED;
 
     public MemoryBlock(){}
 
     public MemoryBlock(int SIZE)
     {
-        BLOCK_DATA = DATA(); 
-        BLOCK_SIZE = SIZE();
-        ALLOCATED = ALLOCATED();
+        BLOCK_DATA = new byte[SIZE]; 
+        BLOCK_SIZE = SIZE;
+        ALLOCATED = false;
     }
 }
