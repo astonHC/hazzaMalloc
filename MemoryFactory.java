@@ -1,3 +1,7 @@
+/* COPYRIGHT (C) HARRY CLARK 2024 */
+
+/* CUSTOM MEMORY ALLOCATOR FOR JAVA */
+
 public interface MemoryFactory
 {
     public int ALLOC(int SIZE);
