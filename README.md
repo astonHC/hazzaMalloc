@@ -6,6 +6,8 @@ Recreational Memory Allocator to learn about Stacks, Queues and Hashmaps
 
 As it says on the tin, this project aims to provide me with the study material to be able to understand the following Data Structures on the basis of how they work in relation to the Lowest level abstraction (except written in Java)
 
+So far, this project encompasses Stack Memory and emulating it's likeness
+
 This involves making my own methods for allocating Blocks of Stack Memory, pushing data to said Blocks and evaluating their respective size.
 
 # Building:
