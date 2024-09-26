@@ -10,9 +10,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class BaseMemory
+public abstract class BaseMemory
 {
-    public static List<MemoryBlock> BLOCKS;
+    public static List<MemoryBlock> BLOCKS = new ArrayList<>();
     private static int BLOCK_INDEX;
     private static int OFFSET;
 
@@ -20,7 +20,7 @@ public class BaseMemory
     static int BOTTOM;
     static int TOTAL_SIZE;
     static int BLOCK_SIZE;
-    static int BLOCK_NO = TOTAL_SIZE / BLOCK_SIZE;
+    public static int BLOCK_NO;
 
     public byte[] DATA;
     public boolean ALLOCATED;
@@ -31,7 +31,8 @@ public class BaseMemory
     public BaseMemory(int VALUE)
     {
         super();
-        this.BLOCKS = new ArrayList<>();
+        BLOCKS = new ArrayList<>();
+        BLOCK_NO = TOTAL_SIZE / BLOCK_SIZE;
     }
     
     /* DEFINE THE CURRENT INDEX NOTATION OF THE BLOCK OF MEMORY */
@@ -41,10 +42,10 @@ public class BaseMemory
 
     public final long GET_ADDRESS(int VALUE)
     {
-        BLOCK_INDEX = VALUE / BLOCKS.get(0).SIZE;
-        OFFSET = VALUE % BLOCKS.get(0).SIZE;
+        BLOCK_INDEX = VALUE / BLOCK_SIZE;
+        OFFSET = VALUE % BLOCK_SIZE;
 
-        return (long)BLOCKS.get(BLOCK_INDEX).BLOCK_DATA.length + OFFSET;
+        return BLOCKS.get(BLOCK_INDEX).BLOCK_DATA.length + OFFSET;
     }
 
     /* SAME METHOD EXCEPT THIS TIME, DATA IS EVALUATED ON THE BASIS OF AN ARRAY */
@@ -53,9 +54,17 @@ public class BaseMemory
 
     public final byte READ(int ADDRESS)
     {
-        BLOCK_INDEX = ADDRESS / BLOCKS.get(0).SIZE;
-        OFFSET = ADDRESS % BLOCKS.get(0).SIZE;
+        BLOCK_INDEX = ADDRESS / BLOCK_SIZE;
+        OFFSET = ADDRESS % BLOCK_SIZE;
 
         return BLOCKS.get(BLOCK_INDEX).BLOCK_DATA[OFFSET];
+    }
+
+    public final void WRITE(int ADDRESS, byte VALUE)
+    {
+        BLOCK_INDEX = ADDRESS / BLOCK_SIZE;
+        OFFSET = ADDRESS % BLOCK_SIZE;
+
+        BLOCKS.get(BLOCK_INDEX).BLOCK_DATA[OFFSET] = VALUE;
     }
 }
