@@ -25,7 +25,7 @@ public interface Memory
 
 abstract class BaseMemory implements Memory
 {
-    public List<MemoryBlock> BLOCKS;
+    public static List<MemoryBlock> BLOCKS;
     private static int BLOCK_INDEX;
     private static int OFFSET;
 
@@ -34,5 +34,16 @@ abstract class BaseMemory implements Memory
     public BaseMemory(int VALUE)
     {
         this.BLOCKS = new ArrayList<>();
+    }
+    
+    /* DEFINE THE CURRENT INDEX NOTATION OF THE BLOCK OF MEMORY */
+    /* USE THE GET METHOD TO ASSERT THE CURRENT ELEMENT IN THE LIST */
+
+    /* RETURN THE TYPE-CASTED DATA BASED ON THE PRE-REQ'S */
+
+    public final long GET_ADDRESS(int VALUE)
+    {
+        BLOCK_INDEX = VALUE / BLOCKS.get(0).SIZE();
+        return (long)BLOCKS.get(BLOCK_INDEX).BLOCK_DATA.length + OFFSET;
     }
 }
