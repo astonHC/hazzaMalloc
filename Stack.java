@@ -26,8 +26,6 @@ public class Stack extends BaseMemory
         this.BLOCK_SIZE = BLOCK_SIZE;
 
         BLOCK_NO = TOTAL_SIZE / BLOCK_SIZE;
-
-        ADD_BLOCKS();
     }
 
     /* ITERATE THROUGH EACH RESPECTIVE AND ALLOCATABLE AREA */
@@ -45,7 +43,6 @@ public class Stack extends BaseMemory
         TOP -= 1;
         System.out.println("Stack initialised with:\n" + "Blocks: " + BLOCK_NO + " Blocks\n" + "\nSize: " + BLOCK_SIZE + " bytes.");
     }
-
 
     /* ALLOCATE AND EVALUATE SPACE FOR EACH RESPECTIVE STACK */
     /* ITERATE THROUGH EACH ELEMENT AND DETERMINE THE BLOCKS FROM TOP TO BOTTOM */
