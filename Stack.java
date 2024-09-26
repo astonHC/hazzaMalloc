@@ -7,7 +7,7 @@
 
 /* THIS AIMS TO PROVIDE A BASE, LIGHTWEIGHT SOLUTION TO ADDING AND FREE MEMORY */
 
-public abstract class Stack extends BaseMemory implements Memory
+public class Stack extends BaseMemory
 {
     public Stack(){}
 
@@ -41,15 +41,15 @@ public abstract class Stack extends BaseMemory implements Memory
         }
 
         TOP -= 1;
+        System.out.println("Stack initialised with: " + BLOCK_NO + "Block Size: " + BLOCK_SIZE + "bytes.");
     }
+
 
     /* ALLOCATE AND EVALUATE SPACE FOR EACH RESPECTIVE STACK */
     /* ITERATE THROUGH EACH ELEMENT AND DETERMINE THE BLOCKS FROM TOP TO BOTTOM */
 
-    @Override
-    public int ALLOC(int SIZE)
+    public static final int ALLOC(int SIZE)
     {
-        
         return TOP * BLOCKS.get(0).SIZE;
     }
 }
