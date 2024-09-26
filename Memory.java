@@ -25,7 +25,7 @@ public interface Memory
 
 abstract class BaseMemory implements Memory
 {
-    public static List<MemoryBlock> BLOCKS;
+    public List<MemoryBlock> BLOCKS;
     private static int BLOCK_INDEX;
     private static int OFFSET;
 
