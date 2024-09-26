@@ -29,6 +29,12 @@ abstract class BaseMemory implements Memory
     private static int BLOCK_INDEX;
     private static int OFFSET;
 
+    private static int TOP;
+    private static int BOTTOM;
+    private static int TOTAL_SIZE;
+
+    private static final int BLOCK_NO = TOTAL_SIZE / BLOCK_INDEX;
+
     public BaseMemory(){}
 
     public BaseMemory(int VALUE)
