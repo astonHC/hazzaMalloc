@@ -25,7 +25,14 @@ public interface Memory
 
 abstract class BaseMemory implements Memory
 {
-    private static List<MemoryBlock> BLOCKS = new ArrayList<MemoryBlock>();
+    public List<MemoryBlock> BLOCKS;
+    private static int BLOCK_INDEX;
+    private static int OFFSET;
 
     public BaseMemory(){}
+
+    public BaseMemory(int VALUE)
+    {
+        this.BLOCKS = new ArrayList<>();
+    }
 }
