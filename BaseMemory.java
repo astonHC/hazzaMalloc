@@ -10,7 +10,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseMemory
+public abstract class BaseMemory implements MemoryFactory
 {
     public static List<MemoryBlock> BLOCKS = new ArrayList<>();
     private static int BLOCK_INDEX;
